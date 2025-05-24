@@ -1,0 +1,36 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #eef2f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+header {
+    background-color: #2b6cb0;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+main {
+    padding: 20px;
+}
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.actions button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    background: #3182ce;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.actions button:hover {
+    background: #2c5282;
+}
