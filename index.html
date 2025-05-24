@@ -3,28 +3,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Personale</title>
+    <title>Dashboard Amministratore</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>📊 Dashboard Amministratore</h1>
-    <section>
-        <h2>📥 Utenti Attivi</h2>
-        <ul>
-            <li>utente1@email.com — UniFocus — Piano: Pro</li>
-            <li>utente2@email.com — EcoWise — Piano: Base</li>
-            <li>utente3@email.com — FixMe — Piano: Prova gratuita</li>
-        </ul>
-    </section>
-    <section>
-        <h2>🧠 Messaggi AI usati</h2>
-        <p>Totale: 128 — UniFocus: 80, EcoWise: 30, FixMe: 18</p>
-    </section>
-    <section>
-        <h2>⚙️ Azioni rapide</h2>
-        <button onclick="resetContatori()">🔄 Reset contatori</button>
-        <button onclick="upgradeUtente()">🚀 Upgrade utente</button>
-    </section>
+    <header>
+        <h1>📊 Dashboard Amministratore</h1>
+    </header>
+    <main>
+        <section class="card">
+            <h2>📥 Utenti Attivi</h2>
+            <ul>
+                <li>utente1@email.com — UniFocus — Piano: Pro</li>
+                <li>utente2@email.com — EcoWise — Piano: Base</li>
+                <li>utente3@email.com — FixMe — Piano: Prova gratuita</li>
+            </ul>
+        </section>
+        <section class="card">
+            <h2>🧠 Messaggi AI usati</h2>
+            <p>Totale: 128 — UniFocus: 80, EcoWise: 30, FixMe: 18</p>
+        </section>
+        <section class="card actions">
+            <h2>⚙️ Azioni rapide</h2>
+            <button onclick="resetContatori()">🔄 Reset contatori</button>
+            <button onclick="upgradeUtente()">🚀 Upgrade utente</button>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
