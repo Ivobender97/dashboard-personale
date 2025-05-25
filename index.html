@@ -3,54 +3,28 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Amministratore</title>
+    <title>Dashboard Personale</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="sidebar">
-        <button id="toggleSidebar">☰</button>
+    <div class="header">
+        <button onclick="toggleSidebar()" id="toggle-btn">☰</button>
+    </div>
+    <div class="sidebar" id="sidebar">
         <ul>
-            <li onclick="navigate('dashboard')">Dashboard</li>
+            <li onclick="navigate('home')">Dashboard</li>
             <li onclick="navigate('utenti')">Utenti</li>
-            <li onclick="navigate('utilizzo-ai')">Utilizzo AI</li>
-            <li onclick="navigate('ai-intelligenti')">AI Intelligenti</li>
-            <li onclick="navigate('esporta-dati')">Esporta dati</li>
-            <li onclick="navigate('impostazioni')">Impostazioni</li>
+            <li onclick="navigate('ai')">Utilizzo AI</li>
+            <li onclick="navigate('tools')">AI Intelligenti</li>
+            <li onclick="navigate('export')">Esporta dati</li>
+            <li onclick="navigate('settings')">Impostazioni</li>
         </ul>
     </div>
-    <div class="main" id="content">
-        <h1>Gestione Utenti</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Email</th>
-                    <th>App</th>
-                    <th>Piano</th>
-                    <th>Azioni</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>utente1@email.com</td>
-                    <td>UniFocus</td>
-                    <td><span class="badge pro">Pro</span></td>
-                    <td><button>Upgrade</button><button>Reset AI</button></td>
-                </tr>
-                <tr>
-                    <td>utente2@email.com</td>
-                    <td>EcoWise</td>
-                    <td><span class="badge base">Base</span></td>
-                    <td><button>Upgrade</button><button>Reset AI</button></td>
-                </tr>
-                <tr>
-                    <td>utente3@email.com</td>
-                    <td>FixMe</td>
-                    <td><span class="badge free">Prova gratuita</span></td>
-                    <td><button>Upgrade</button><button>Reset AI</button></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="content" id="content">
+        <!-- Sezioni caricate dinamicamente -->
     </div>
     <script src="script.js"></script>
+    <script>navigate('home');</script>
 </body>
 </html>
