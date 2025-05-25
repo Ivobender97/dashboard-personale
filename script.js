@@ -118,3 +118,21 @@ function aggiornaGraficoAI() {
     const filtro = document.getElementById('filtro').value;
     disegnaGraficoAI(filtro);
 }
+
+
+function navigate(view) {
+    const content = document.getElementById('content');
+    if (view === 'home') {
+        content.innerHTML = '<h1>Dashboard Panoramica</h1><p>Benvenuto nella tua area amministrativa.</p>';
+    } else if (view === 'utenti') {
+        content.innerHTML = '<h1>Utenti</h1><p>Gestione utenti e piani attivi.</p>';
+    } else if (view === 'ai') {
+        renderUtilizzoAI();
+    } else if (view === 'tools') {
+        content.innerHTML = '<h1>AI Intelligenti</h1><p>Strumenti personali per assistenza e automazioni.</p>';
+    } else if (view === 'export') {
+        content.innerHTML = '<h1>Esporta dati</h1><p>Download dei dati in formato CSV o PDF.</p>';
+    } else if (view === 'settings') {
+        content.innerHTML = '<h1>Impostazioni</h1><p>Gestione accessi e sicurezza.</p>';
+    }
+}
