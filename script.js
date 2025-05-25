@@ -159,3 +159,43 @@ function showAIResults() {
         </div>
     `;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const pieConfigs = [
+        {
+            id: "chartUniFocus",
+            data: [100, 600, 550],
+            labels: ["Free", "Base", "Pro"]
+        },
+        {
+            id: "chartEcoWise",
+            data: [120, 480, 380],
+            labels: ["Free", "Base", "Pro"]
+        },
+        {
+            id: "chartFixMe",
+            data: [200, 220, 100],
+            labels: ["Free", "Base", "Pro"]
+        }
+    ];
+    pieConfigs.forEach(cfg => {
+        const el = document.getElementById(cfg.id);
+        if (el) {
+            new Chart(el, {
+                type: "pie",
+                data: {
+                    labels: cfg.labels,
+                    datasets: [{
+                        data: cfg.data,
+                        backgroundColor: ["#6c757d", "#28a745", "#007bff"]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+    });
+});
