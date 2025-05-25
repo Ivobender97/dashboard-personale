@@ -1,14 +1,1 @@
-
-body { font-family: Arial, sans-serif; margin: 0; }
-.sidebar { width: 200px; background: #2d71b3; color: white; position: fixed; top: 0; bottom: 0; padding-top: 20px; }
-.sidebar ul { list-style-type: none; padding: 0; }
-.sidebar ul li { padding: 10px 20px; cursor: pointer; }
-.sidebar ul li:hover { background-color: #1e5a8a; }
-.main-content { margin-left: 200px; padding: 20px; }
-.section { display: none; }
-.section.active { display: block; }
-.badge { padding: 4px 8px; border-radius: 5px; color: white; }
-.badge.pro { background-color: #007bff; }
-.badge.base { background-color: #28a745; }
-.badge.free { background-color: #6c757d; }
-.toggle-btn { background: none; border: none; color: white; font-size: 20px; position: absolute; top: 10px; left: 10px; cursor: pointer; }
+// Contenuto aggiornato del file style.css
