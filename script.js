@@ -48,3 +48,53 @@ function renderUtenti() {
     html += '</tbody></table>';
     content.innerHTML = html;
 }
+
+function renderUtilizzoAI() {
+    const content = document.getElementById('content');
+    content.innerHTML = '<h1>Utilizzo AI</h1><canvas id="aiChart" width="600" height="400"></canvas>';
+
+    const ctx = document.getElementById('aiChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['UniFocus', 'EcoWise', 'FixMe'],
+            datasets: [{
+                label: 'Messaggi AI usati',
+                data: [320, 150, 210],
+                backgroundColor: ['#2B6CB0', '#38A169', '#A0AEC0']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function navigate(section) {
+    const content = document.getElementById('content');
+    if (section === 'home') {
+        content.innerHTML = '<h1>Dashboard Panoramica</h1><p>Benvenuto nella tua area amministrativa.</p>';
+    } else if (section === 'utenti') {
+        renderUtenti();
+    } else if (section === 'ai') {
+        renderUtilizzoAI();
+    } else if (section === 'tools') {
+        content.innerHTML = '<h1>AI Intelligenti</h1><p>Accesso a strumenti avanzati come ricerca app e FixBot.</p>';
+    } else if (section === 'export') {
+        content.innerHTML = '<h1>Esporta Dati</h1><p>Scarica i dati degli utenti in CSV.</p>';
+    } else if (section === 'settings') {
+        content.innerHTML = '<h1>Impostazioni</h1><p>Gestisci sicurezza, debug e preferenze.</p>';
+    }
+}
