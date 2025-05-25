@@ -195,3 +195,59 @@ function showSection(id) {
     const selected = document.getElementById(id);
     if (selected) selected.classList.add('active');
 }
+
+
+function addNotification(text, type = "info") {
+    const ul = document.getElementById("notificationList");
+    const li = document.createElement("li");
+    li.textContent = text;
+    if (type === "warning") li.style.color = "darkorange";
+    if (type === "success") li.style.color = "green";
+    if (type === "error") li.style.color = "red";
+    ul.prepend(li);
+}
+
+// Evento: CSV esportato
+function exportCSV() {
+    const app = document.getElementById("appSelect").value;
+    const range = currentRange;
+    const data = datasets[range];
+    const labels = data.labels;
+    let rows = [["Giorno", "UniFocus", "EcoWise", "FixMe"]];
+
+    labels.forEach((label, i) => {
+        rows.push([
+            label,
+            data.UniFocus[i],
+            data.EcoWise[i],
+            data.FixMe[i]
+        ]);
+    });
+
+    let csv = rows.map(r => r.join(",")).join("\n");
+    const blob = new Blob([csv], {type: "text/csv"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "utilizzo_ai.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+    addNotification("📤 CSV dei dati AI esportato con successo", "success");
+}
+
+// Evento: verifica uso AI
+document.addEventListener("DOMContentLoaded", () => {
+    const maxToday = datasets.week.UniFocus[6]; // Domenica
+    if (maxToday > 150) {
+        addNotification("⚠️ UniFocus ha superato 150 messaggi AI oggi", "warning");
+    }
+    const fixMeToday = datasets.week.FixMe[6];
+    if (fixMeToday < 10) {
+        addNotification("🔕 FixMe ha meno di 10 interazioni AI oggi", "error");
+    }
+});
+
+// Evento: task completato (simulato)
+document.addEventListener("DOMContentLoaded", () => {
+    addNotification("✅ Task 'Test export CSV da grafici' completato", "success");
+});
