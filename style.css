@@ -136,3 +136,20 @@ canvas {
     margin: 10px auto;
     display: block;
 }
+
+.chart-tabs {
+    margin-bottom: 20px;
+}
+.chart-tabs button {
+    margin-right: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    background-color: #2e6bb2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.chart-tabs button:hover {
+    background-color: #1b4e8c;
+}

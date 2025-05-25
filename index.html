@@ -78,7 +78,17 @@
         </section>
 
         
+    
     <section id="utilizzo-ai" class="content-section">
+        <h2>Utilizzo AI</h2>
+        <div class="chart-tabs">
+            <button onclick="switchChart('week')">Ultimi 7 giorni</button>
+            <button onclick="switchChart('month')">Mensile</button>
+            <button onclick="switchChart('quarter')">Trimestrale</button>
+            <button onclick="switchChart('year')">Annuale</button>
+        </div>
+        <canvas id="aiUsageChart" width="800" height="400"></canvas>
+    
         <h2>Utilizzo AI - Ultimi 7 giorni</h2>
         <canvas id="aiUsageWeeklyChart" width="600" height="300"></canvas>
     
