@@ -131,3 +131,67 @@ function exportCSV() {
     a.click();
     URL.revokeObjectURL(url);
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const pieConfigs = [
+        {
+            id: "chartUniFocus",
+            data: [100, 600, 550],
+            labels: ["Free", "Base", "Pro"]
+        },
+        {
+            id: "chartEcoWise",
+            data: [120, 480, 380],
+            labels: ["Free", "Base", "Pro"]
+        },
+        {
+            id: "chartFixMe",
+            data: [200, 220, 100],
+            labels: ["Free", "Base", "Pro"]
+        }
+    ];
+    pieConfigs.forEach(cfg => {
+        const el = document.getElementById(cfg.id);
+        if (el) {
+            new Chart(el, {
+                type: "pie",
+                data: {
+                    labels: cfg.labels,
+                    datasets: [{
+                        data: cfg.data,
+                        backgroundColor: ["#6c757d", "#28a745", "#007bff"]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+    });
+});
+
+// Sidebar toggle
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    sidebar.classList.toggle('collapsed');
+    main.classList.toggle('collapsed');
+    setTimeout(() => {
+        if (window.Chart) {
+            Object.values(Chart.instances || {}).forEach(instance => {
+                instance.resize();
+            });
+        }
+    }, 310);
+}
+
+// Navigation
+function showSection(id) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => section.classList.remove('active'));
+    const selected = document.getElementById(id);
+    if (selected) selected.classList.add('active');
+}
