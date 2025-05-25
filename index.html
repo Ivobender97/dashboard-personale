@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <div class="sidebar" id="sidebar">
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#utenti">Utenti</a></li>
-            <li><a href="#utilizzo-ai">Utilizzo AI</a></li>
-            <li><a href="#ai-intelligenti">AI Intelligenti</a></li>
-            <li><a href="#esporta-dati">Esporta dati</a></li>
-            <li><a href="#impostazioni">Impostazioni</a></li>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('utenti')">Utenti</a></li>
+            <li><a href="#" onclick="showSection('utilizzo-ai')">Utilizzo AI</a></li>
+            <li><a href="#" onclick="showSection('ai-intelligenti')">AI Intelligenti</a></li>
+            <li><a href="#" onclick="showSection('esporta-dati')">Esporta dati</a></li>
+            <li><a href="#" onclick="showSection('impostazioni')">Impostazioni</a></li>
         </ul>
     </div>
 
     <div class="main" id="main">
-        <section id="dashboard">
+        <section id="dashboard" class="content-section active">
             <h1>Dashboard Panoramica</h1>
-            <p>Benvenuto nella tua area amministrativa.</p>
+            <p>Benvenuto nella tua area amministrativa. Seleziona una sezione dal menu.</p>
         </section>
 
-        <section id="utenti">
+        <section id="utenti" class="content-section">
             <h2>Gestione Utenti</h2>
             <table>
                 <thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead>
@@ -38,13 +38,12 @@
             </table>
         </section>
 
-        <section id="utilizzo-ai">
+        <section id="utilizzo-ai" class="content-section">
             <h2>Utilizzo AI</h2>
-            <p>Grafico e statistiche sui messaggi AI.</p>
-            <div class="card">[Grafico Placeholder]</div>
+            <div class="card">Grafico e statistiche sui messaggi AI (in arrivo).</div>
         </section>
 
-        <section id="ai-intelligenti">
+        <section id="ai-intelligenti" class="content-section">
             <h2>AI Intelligenti</h2>
             <ul>
                 <li>Generazione quiz (UniFocus)</li>
@@ -53,15 +52,15 @@
             </ul>
         </section>
 
-        <section id="esporta-dati">
+        <section id="esporta-dati" class="content-section">
             <h2>Esporta Dati</h2>
             <button>Scarica JSON</button>
             <button>Scarica CSV</button>
         </section>
 
-        <section id="impostazioni">
+        <section id="impostazioni" class="content-section">
             <h2>Impostazioni</h2>
-            <label><input type="checkbox"> Modalità scura</label><br/>
+            <label><input type="checkbox" id="darkToggle"> Modalità scura</label><br/>
             <label>Lingua:
                 <select>
                     <option>Italiano</option>
