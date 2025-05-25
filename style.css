@@ -4,22 +4,28 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f6fa;
 }
+.header {
+    background-color: #2b6cb0;
+    color: white;
+    padding: 10px;
+}
+.header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     background-color: #2b6cb0;
     color: white;
     width: 220px;
-    height: 100%;
+    height: calc(100% - 50px);
     padding-top: 20px;
-}
-.sidebar button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    margin-left: 10px;
+    display: block;
 }
 .sidebar ul {
     list-style-type: none;
