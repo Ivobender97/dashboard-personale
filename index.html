@@ -1,1 +1,58 @@
-// Contenuto aggiornato del file index.html
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Personale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sidebar" class="sidebar open">
+        <button id="toggleBtn" class="toggle-button">&#9776;</button>
+        <ul>
+            <li onclick="showSection('dashboard')">Dashboard</li>
+            <li onclick="showSection('utenti')">Utenti</li>
+            <li onclick="showSection('aiUsage')">Utilizzo AI</li>
+            <li onclick="showSection('aiTools')">AI Intelligenti</li>
+            <li onclick="showSection('export')">Esporta dati</li>
+            <li onclick="showSection('settings')">Impostazioni</li>
+        </ul>
+    </div>
+    <div class="main">
+        <div id="dashboard" class="section active">
+            <h1>Dashboard Panoramica</h1>
+            <p>Benvenuto nella tua area amministrativa.</p>
+        </div>
+        <div id="utenti" class="section">
+            <h1>Gestione Utenti</h1>
+            <table>
+                <thead>
+                    <tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>utente1@email.com</td><td>UniFocus</td><td><span class="pro">Pro</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
+                    <tr><td>utente2@email.com</td><td>EcoWise</td><td><span class="base">Base</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
+                    <tr><td>utente3@email.com</td><td>FixMe</td><td><span class="free">Prova gratuita</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="aiUsage" class="section">
+            <h1>Utilizzo AI</h1>
+            <p>Grafico e statistiche sui messaggi AI.</p>
+            <select><option>Oggi</option><option>Settimana</option><option>Mese</option></select>
+            <table>
+                <thead><tr><th>Email</th><th>Messaggi AI</th></tr></thead>
+                <tbody>
+                    <tr><td>utente1@email.com</td><td>320</td></tr>
+                    <tr><td>utente3@email.com</td><td>210</td></tr>
+                    <tr><td>utente2@email.com</td><td>150</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="aiTools" class="section"><h1>AI Intelligenti</h1></div>
+        <div id="export" class="section"><h1>Esporta dati</h1></div>
+        <div id="settings" class="section"><h1>Impostazioni</h1></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,1 +1,55 @@
-// Contenuto aggiornato del file style.css
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e5e5e5;
+}
+.sidebar {
+    width: 200px;
+    background: #2b6cb0;
+    height: 100vh;
+    color: white;
+    position: fixed;
+    transition: transform 0.3s ease;
+}
+.sidebar.closed {
+    transform: translateX(-200px);
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li {
+    padding: 15px;
+    cursor: pointer;
+}
+.toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin: 10px;
+}
+.main {
+    margin-left: 200px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
+}
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.pro { background: #3182ce; color: white; padding: 3px 8px; border-radius: 4px; }
+.base { background: #38a169; color: white; padding: 3px 8px; border-radius: 4px; }
+.free { background: #718096; color: white; padding: 3px 8px; border-radius: 4px; }
