@@ -8,88 +8,75 @@ function toggleSidebar() {
 
 function showSection(id) {
     const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
+    sections.forEach(section => section.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
-// Dark mode
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('darkToggle').addEventListener('change', function() {
-        document.body.classList.toggle('dark-mode', this.checked);
-    });
+function startAISearch() {
+    const progress = document.getElementById('progressBar');
+    const container = document.getElementById('progressContainer');
+    const status = document.getElementById('statusMessage');
+    const results = document.getElementById('aiResults');
+    container.style.display = 'block';
+    results.innerHTML = '';
+    let percent = 0;
 
-    // Sezione utenti
-    const userData = [
-        { email: "utente1@email.com", app: "UniFocus", piano: "Pro" },
-        { email: "utente2@email.com", app: "EcoWise", piano: "Base" },
-        { email: "utente3@email.com", app: "FixMe", piano: "Prova gratuita" },
+    const messages = [
+        "Analisi trend globali in corso...",
+        "Esame dei modelli AI attuali...",
+        "Verifica validità dei modelli di business...",
+        "Controllo app esistenti simili...",
+        "Valutazione potenziale di mercato...",
+        "Finalizzazione proposta app AI..."
     ];
-    const badgeClass = { "Pro": "pro", "Base": "base", "Prova gratuita": "free" };
-    let tableHTML = `<table>
-        <thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead><tbody>`;
-    userData.forEach(user => {
-        tableHTML += `<tr>
-            <td>${user.email}</td>
-            <td>${user.app}</td>
-            <td><span class="badge ${badgeClass[user.piano]}">${user.piano}</span></td>
-            <td>
-                <button onclick="alert('Upgrade ${user.email}')">Upgrade</button>
-                <button onclick="alert('Reset AI ${user.email}')">Reset AI</button>
-                <button onclick="alert('Sospendi ${user.email}')">Sospendi</button>
-            </td></tr>`;
-    });
-    tableHTML += "</tbody></table>";
-    document.getElementById("userTableContainer").innerHTML = tableHTML;
 
-    // Grafico AI
-    const ctx = document.getElementById('aiUsageChart');
-    if (ctx) {
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['UniFocus', 'EcoWise', 'FixMe'],
-                datasets: [{
-                    label: 'Messaggi AI (Ultimi 7 giorni)',
-                    data: [120, 75, 30],
-                    backgroundColor: ['#007bff', '#28a745', '#6c757d']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-});
+    let msgIndex = 0;
 
+    const interval = setInterval(() => {
+        percent += Math.floor(Math.random() * 3) + 1;
+        if (percent > 100) percent = 100;
+        progress.value = percent;
 
-// Gestione generazione app AI
-document.getElementById('newAppForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('appName').value.trim();
-    const problem = document.getElementById('problem').value.trim();
-    const target = document.getElementById('target').value.trim();
-    const aiType = document.getElementById('aiType').value.trim();
+        if (percent >= (msgIndex + 1) * 15 && msgIndex < messages.length) {
+            status.textContent = messages[msgIndex];
+            msgIndex++;
+        }
 
-    const output = `
+        if (percent >= 100) {
+            clearInterval(interval);
+            status.textContent = "Ricerca completata!";
+            showAIResults();
+        }
+    }, 500); // circa 50 step → 25 sec tempo medio simulato
+}
+
+function showAIResults() {
+    const results = document.getElementById('aiResults');
+    results.innerHTML = `
         <div class="card">
-            <h3>${name}</h3>
-            <p><strong>Problema che risolve:</strong> ${problem}</p>
-            <p><strong>Target utenti:</strong> ${target}</p>
-            <p><strong>Tipo di AI:</strong> ${aiType}</p>
-            <p><em>Strategia suggerita: inizia con un MVP basato su ${aiType}, testalo con un piccolo gruppo di ${target} e raccogli feedback entro 2 settimane.</em></p>
+            <h3>MindMatch AI</h3>
+            <p><strong>Target:</strong> HR managers in tech companies</p>
+            <p><strong>Problem:</strong> Difficult to match job candidates with team dynamics</p>
+            <p><strong>AI Used:</strong> Personality profiling + skill mapping</p>
+            <p><strong>Monetization:</strong> Subscription + API access</p>
+            <p><strong>Positioning:</strong> No direct competitor with behavioral AI</p>
+            <p style="color:green;"><strong>✅ Recommended: High market demand + low competition</strong></p>
+        </div>
+        <div class="card">
+            <h3>EcoRoute Planner</h3>
+            <p><strong>Target:</strong> Delivery companies</p>
+            <p><strong>Problem:</strong> Inefficient routes cause fuel waste</p>
+            <p><strong>AI Used:</strong> Real-time traffic + emissions optimizer</p>
+            <p><strong>Monetization:</strong> Per vehicle license/month</p>
+            <p><strong>Positioning:</strong> GreenTech meets logistics</p>
+        </div>
+        <div class="card">
+            <h3>StudyBuddy Vision</h3>
+            <p><strong>Target:</strong> High school & university students</p>
+            <p><strong>Problem:</strong> Struggles with conceptual diagrams</p>
+            <p><strong>AI Used:</strong> Image-to-concept recognition + spaced repetition</p>
+            <p><strong>Monetization:</strong> Freemium with Pro features</p>
+            <p><strong>Positioning:</strong> Visual-first learning AI</p>
         </div>
     `;
-    document.getElementById('generatedApp').innerHTML = output;
-});
+}
