@@ -4,70 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Dashboard Admin</title>
+    <title>Gestione Utenti</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <div class="sidebar" id="sidebar">
         <ul>
-            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
-            <li><a href="#" onclick="showSection('utenti')">Utenti</a></li>
-            <li><a href="#" onclick="showSection('utilizzo-ai')">Utilizzo AI</a></li>
-            <li><a href="#" onclick="showSection('ai-intelligenti')">AI Intelligenti</a></li>
-            <li><a href="#" onclick="showSection('esporta-dati')">Esporta dati</a></li>
-            <li><a href="#" onclick="showSection('impostazioni')">Impostazioni</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Utenti</a></li>
+            <li><a href="#">Utilizzo AI</a></li>
+            <li><a href="#">AI Intelligenti</a></li>
+            <li><a href="#">Esporta dati</a></li>
+            <li><a href="#">Impostazioni</a></li>
         </ul>
     </div>
 
     <div class="main" id="main">
-        <section id="dashboard" class="content-section active">
-            <h1>Dashboard Panoramica</h1>
-            <p>Benvenuto nella tua area amministrativa. Seleziona una sezione dal menu.</p>
-        </section>
-
-        <section id="utenti" class="content-section">
+        <section id="utenti" class="content-section active">
             <h2>Gestione Utenti</h2>
-            <table>
-                <thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead>
-                <tbody>
-                    <tr><td>utente1@email.com</td><td>UniFocus</td><td><span class="badge pro">Pro</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
-                    <tr><td>utente2@email.com</td><td>EcoWise</td><td><span class="badge base">Base</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
-                    <tr><td>utente3@email.com</td><td>FixMe</td><td><span class="badge free">Prova gratuita</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="utilizzo-ai" class="content-section">
-            <h2>Utilizzo AI</h2>
-            <div class="card">Grafico e statistiche sui messaggi AI (in arrivo).</div>
-        </section>
-
-        <section id="ai-intelligenti" class="content-section">
-            <h2>AI Intelligenti</h2>
-            <ul>
-                <li>Generazione quiz (UniFocus)</li>
-                <li>Consigli sostenibili (EcoWise)</li>
-                <li>Diagnosi problemi (FixMe)</li>
-            </ul>
-        </section>
-
-        <section id="esporta-dati" class="content-section">
-            <h2>Esporta Dati</h2>
-            <button>Scarica JSON</button>
-            <button>Scarica CSV</button>
-        </section>
-
-        <section id="impostazioni" class="content-section">
-            <h2>Impostazioni</h2>
-            <label><input type="checkbox" id="darkToggle"> Modalità scura</label><br/>
-            <label>Lingua:
-                <select>
-                    <option>Italiano</option>
-                    <option>Inglese</option>
-                    <option>Francese</option>
-                </select>
-            </label>
+            <div id="userTableContainer">
+                <p>Caricamento utenti...</p>
+            </div>
         </section>
     </div>
 

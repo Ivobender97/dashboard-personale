@@ -4,11 +4,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f1f3f5;
     color: #333;
-    transition: background 0.3s, color 0.3s;
-}
-body.dark-mode {
-    background-color: #1e1e1e;
-    color: #f1f1f1;
 }
 .sidebar {
     width: 250px;
@@ -47,16 +42,9 @@ body.dark-mode {
     left: 10px;
     z-index: 2;
 }
-.sidebar.collapsed {
-    transform: translateX(-250px);
-}
 .main {
     margin-left: 250px;
     padding: 20px;
-    transition: margin-left 0.3s ease;
-}
-.sidebar.collapsed ~ .main {
-    margin-left: 0;
 }
 .badge {
     padding: 5px 10px;
@@ -69,6 +57,7 @@ body.dark-mode {
 table {
     border-collapse: collapse;
     width: 100%;
+    background-color: white;
 }
 table, th, td {
     border: 1px solid #ccc;
@@ -76,20 +65,4 @@ table, th, td {
 th, td {
     padding: 10px;
     text-align: left;
-}
-.card {
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    margin-top: 10px;
-}
-body.dark-mode .card {
-    background: #2c2c2c;
-}
-.content-section {
-    display: none;
-}
-.content-section.active {
-    display: block;
 }
