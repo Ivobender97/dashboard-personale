@@ -11,21 +11,46 @@
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <div class="sidebar" id="sidebar">
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Utenti</a></li>
-            <li><a href="#">Utilizzo AI</a></li>
-            <li><a href="#">AI Intelligenti</a></li>
-            <li><a href="#">Esporta dati</a></li>
-            <li><a href="#">Impostazioni</a></li>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('utenti')">Utenti</a></li>
+            <li><a href="#" onclick="showSection('utilizzo-ai')">Utilizzo AI</a></li>
+            <li><a href="#" onclick="showSection('ai-intelligenti')">AI Intelligenti</a></li>
+            <li><a href="#" onclick="showSection('esporta-dati')">Esporta dati</a></li>
+            <li><a href="#" onclick="showSection('impostazioni')">Impostazioni</a></li>
         </ul>
     </div>
 
     <div class="main" id="main">
-        <section id="utenti" class="content-section active">
+        <section id="dashboard" class="content-section active">
+            <h1>Dashboard</h1>
+            <p>Benvenuto nella dashboard. Seleziona una sezione dal menu.</p>
+        </section>
+
+        <section id="utenti" class="content-section">
             <h2>Gestione Utenti</h2>
             <div id="userTableContainer">
                 <p>Caricamento utenti...</p>
             </div>
+        </section>
+
+        <section id="utilizzo-ai" class="content-section">
+            <h2>Utilizzo AI</h2>
+            <p>[Grafici in arrivo]</p>
+        </section>
+
+        <section id="ai-intelligenti" class="content-section">
+            <h2>AI Intelligenti</h2>
+            <p>[AI personali in arrivo]</p>
+        </section>
+
+        <section id="esporta-dati" class="content-section">
+            <h2>Esporta Dati</h2>
+            <p>[Funzionalità di esportazione in arrivo]</p>
+        </section>
+
+        <section id="impostazioni" class="content-section">
+            <h2>Impostazioni</h2>
+            <p>[Impostazioni in arrivo]</p>
         </section>
     </div>
 

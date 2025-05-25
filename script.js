@@ -1,10 +1,20 @@
 
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
     sidebar.classList.toggle('collapsed');
+    main.classList.toggle('collapsed');
 }
 
-// Simulazione caricamento dati da "backend"
+function showSection(id) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+}
+
+// Simulazione caricamento dati da backend
 document.addEventListener("DOMContentLoaded", () => {
     const userData = [
         { email: "utente1@email.com", app: "UniFocus", piano: "Pro" },
@@ -40,6 +50,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     tableHTML += "</tbody></table>";
-
     document.getElementById("userTableContainer").innerHTML = tableHTML;
 });
