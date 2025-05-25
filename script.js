@@ -206,3 +206,50 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById('aiUsageWeeklyChart');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'],
+                datasets: [
+                    {
+                        label: 'UniFocus',
+                        data: [120, 135, 160, 175, 180, 140, 130],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0,123,255,0.1)',
+                        fill: true
+                    },
+                    {
+                        label: 'EcoWise',
+                        data: [85, 100, 95, 110, 120, 105, 90],
+                        borderColor: '#28a745',
+                        backgroundColor: 'rgba(40,167,69,0.1)',
+                        fill: true
+                    },
+                    {
+                        label: 'FixMe',
+                        data: [40, 50, 45, 60, 55, 48, 42],
+                        borderColor: '#6c757d',
+                        backgroundColor: 'rgba(108,117,125,0.1)',
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    }
+});
