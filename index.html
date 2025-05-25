@@ -3,64 +3,82 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Personale</title>
+    <title>Dashboard Admin</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div id="sidebar" class="sidebar open">
-        <button id="toggleBtn" class="toggle-button">&#9776;</button>
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <ul>
             <li onclick="showSection('dashboard')">Dashboard</li>
             <li onclick="showSection('utenti')">Utenti</li>
-            <li onclick="showSection('aiUsage')">Utilizzo AI</li>
-            <li onclick="showSection('aiTools')">AI Intelligenti</li>
-            <li onclick="showSection('export')">Esporta dati</li>
-            <li onclick="showSection('settings')">Impostazioni</li>
+            <li onclick="showSection('utilizzo-ai')">Utilizzo AI</li>
+            <li onclick="showSection('ai-intelligenti')">AI Intelligenti</li>
+            <li onclick="showSection('esporta-dati')">Esporta dati</li>
+            <li onclick="showSection('impostazioni')">Impostazioni</li>
         </ul>
     </div>
-    <div class="main">
-        <div id="dashboard" class="section active">
+
+    <div class="main-content">
+        <section id="dashboard" class="content-section">
             <h1>Dashboard Panoramica</h1>
             <p>Benvenuto nella tua area amministrativa.</p>
-        </div>
-        <div id="utenti" class="section">
+        </section>
+
+        <section id="utenti" class="content-section" style="display:none;">
             <h1>Gestione Utenti</h1>
             <table>
                 <thead>
-                    <tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr>
+                    <tr><th>Email</th><th>App</th><th>Piano</th><th colspan="2">Azioni</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>utente1@email.com</td><td>UniFocus</td><td><span class="pro">Pro</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
-                    <tr><td>utente2@email.com</td><td>EcoWise</td><td><span class="base">Base</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
-                    <tr><td>utente3@email.com</td><td>FixMe</td><td><span class="free">Prova gratuita</span></td><td><button>Upgrade</button> <button>Reset AI</button></td></tr>
+                    <tr><td>utente1@email.com</td><td>UniFocus</td><td><span class="badge pro">Pro</span></td><td><button>Upgrade</button></td><td><button>Reset AI</button></td></tr>
+                    <tr><td>utente2@email.com</td><td>EcoWise</td><td><span class="badge base">Base</span></td><td><button>Upgrade</button></td><td><button>Reset AI</button></td></tr>
+                    <tr><td>utente3@email.com</td><td>FixMe</td><td><span class="badge free">Prova gratuita</span></td><td><button>Upgrade</button></td><td><button>Reset AI</button></td></tr>
                 </tbody>
             </table>
-        </div>
-        <div id="aiUsage" class="section">
+        </section>
+
+        <section id="utilizzo-ai" class="content-section" style="display:none;">
             <h1>Utilizzo AI</h1>
             <label for="filtro">Filtro tempo:</label>
-            <select id="filtro" onchange="disegnaGraficoAI()">
-                <option value="oggi">Oggi</option>
-                <option value="7giorni">Ultimi 7 giorni</option>
-                <option value="mese">Questo mese</option>
+            <select id="filtro">
+                <option>Oggi</option>
+                <option>Settimana</option>
+                <option>Mese</option>
             </select>
-            <canvas id="aiChart" width="600" height="300" style="margin-top: 20px;"></canvas>
-            <h2 style="margin-top:30px;">Top utenti per uso AI</h2>
+            <canvas id="aiChart" width="400" height="200"></canvas>
+            <h3>Top utenti per uso AI</h3>
             <table>
-                <thead><tr><th>Email</th><th>Messaggi AI</th></tr></thead>
+                <thead>
+                    <tr><th>Email</th><th>Messaggi AI</th></tr>
+                </thead>
                 <tbody>
                     <tr><td>utente1@email.com</td><td>320</td></tr>
                     <tr><td>utente3@email.com</td><td>210</td></tr>
                     <tr><td>utente2@email.com</td><td>150</td></tr>
                 </tbody>
             </table>
-            <button onclick="exportCSV()" class="action" style="margin-top:20px;">Esporta CSV</button>
-        </div>
-        <div id="aiTools" class="section"><h1>AI Intelligenti</h1></div>
-        <div id="export" class="section"><h1>Esporta dati</h1></div>
-        <div id="settings" class="section"><h1>Impostazioni</h1></div>
+            <button>Esporta CSV</button>
+        </section>
+
+        <section id="ai-intelligenti" class="content-section" style="display:none;">
+            <h1>AI Intelligenti</h1>
+            <p>Integrazioni avanzate con AI per ricerca idee, insight e assistenza.</p>
+        </section>
+
+        <section id="esporta-dati" class="content-section" style="display:none;">
+            <h1>Esporta dati</h1>
+            <p>Download CSV utenti, report mensili.</p>
+        </section>
+
+        <section id="impostazioni" class="content-section" style="display:none;">
+            <h1>Impostazioni</h1>
+            <p>Password, sicurezza, modalità debug.</p>
+        </section>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
