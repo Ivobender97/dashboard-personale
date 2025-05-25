@@ -33,10 +33,11 @@ function renderUtenti() {
     html += '<table><thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead><tbody>';
 
     utenti.forEach(utente => {
+        const className = 'plan-' + utente.piano.toLowerCase().replace(' ', '-');
         html += `<tr>
             <td>${utente.email}</td>
             <td>${utente.app}</td>
-            <td>${utente.piano}</td>
+            <td><span class="plan ${className}">${utente.piano}</span></td>
             <td>
                 <button class="action" onclick="alert('Upgrade per ${utente.email}')">Upgrade</button>
                 <button class="action" onclick="alert('Reset AI per ${utente.email}')">Reset AI</button>

@@ -64,3 +64,20 @@ button.action {
 button.action:hover {
     background-color: #2b6cb0;
 }
+
+.plan {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+}
+.plan-prova-gratuita {
+    background-color: #A0AEC0;
+}
+.plan-base {
+    background-color: #38A169;
+}
+.plan-pro {
+    background-color: #2B6CB0;
+}
