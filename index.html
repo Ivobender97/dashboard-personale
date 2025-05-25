@@ -16,10 +16,11 @@
             <li><a href="#" onclick="showSection('utenti')">Utenti</a></li>
             <li><a href="#" onclick="showSection('utilizzo-ai')">Utilizzo AI</a></li>
             <li><a href="#" onclick="showSection('ai-intelligenti')">AI Intelligenti</a></li>
-            <li><a href="#" onclick="showSection('crea-app')">Crea App AI</a></li>
+            
             <li><a href="#" onclick="showSection('ricerca-ai')">Ricerca App AI</a></li>
             <li><a href="#" onclick="showSection('esporta-dati')">Esporta dati</a></li>
-            <li><a href="#" onclick="showSection('impostazioni')">Impostazioni</a></li>
+            <li><a href="#" onclick="showSection('strategic-center')">Centro Strategico</a></li>
+<li><a href="#" onclick="showSection('impostazioni')">Impostazioni</a></li>
         </ul>
     </div>
 
@@ -91,7 +92,7 @@
             </ul>
         </section>
 
-        <section id="crea-app" class="content-section">
+        
             <h2>Crea una nuova app AI</h2>
             <form id="newAppForm">
                 <label>Nome app: <input type="text" id="appName" required></label><br><br>
@@ -104,9 +105,34 @@
                 <button type="submit">Genera scheda app</button>
             </form>
             <div id="generatedApp" style="margin-top:20px;"></div>
+        
+        <section id="strategic-center" class="content-section">
+            <h2>Centro Strategico AI</h2>
+            <div class="card">
+                <h3>Advisor AI</h3>
+                <p>Consiglio automatico basato su analisi del tuo ecosistema:</p>
+                <p><strong>Prossima mossa consigliata:</strong> Rafforza EcoWise con supporto vocale e onboarding semplificato per aumentare la retention del 20%.</p>
+            </div>
+            <div class="card" style="margin-top:20px;">
+                <h3>Trend di mercato AI</h3>
+                <ul>
+                    <li>🔍 “AI per organizzazione familiare” in forte crescita (Google Trends)</li>
+                    <li>🧠 App AI per il benessere mentale +41% su ProductHunt</li>
+                    <li>🎓 Soluzioni educative AI → nuovi investimenti seed in aumento</li>
+                </ul>
+            </div>
+            <div class="card" style="margin-top:20px;">
+                <h3>Azioni raccomandate</h3>
+                <ul>
+                    <li>[⚙️] Automatizza flusso onboarding FixMe</li>
+                    <li>[📢] Attiva mailing list utenti UniFocus Pro</li>
+                    <li>[📱] Crea demo pitch LocalPro AI</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="ricerca-ai" class="content-section">
+        <section id="ricerca-ai"
+ class="content-section">
             <h2>Ricerca Nuova App con AI</h2>
             <button onclick="startAISearch()">Start AI Research</button>
             <div id="progressContainer" style="margin-top:20px; display:none;">
