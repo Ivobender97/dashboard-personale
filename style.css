@@ -129,3 +129,10 @@ button {
 button:hover {
     background-color: #1b4e8c;
 }
+
+canvas {
+    max-width: 220px;
+    max-height: 220px;
+    margin: 10px auto;
+    display: block;
+}
