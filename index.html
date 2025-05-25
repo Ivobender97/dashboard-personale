@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Gestione Utenti</title>
+    <title>Dashboard Completa</title>
     <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
@@ -23,7 +24,7 @@
     <div class="main" id="main">
         <section id="dashboard" class="content-section active">
             <h1>Dashboard</h1>
-            <p>Benvenuto nella dashboard. Seleziona una sezione dal menu.</p>
+            <p>Benvenuto nella tua area di controllo.</p>
         </section>
 
         <section id="utenti" class="content-section">
@@ -35,22 +36,42 @@
 
         <section id="utilizzo-ai" class="content-section">
             <h2>Utilizzo AI</h2>
-            <p>[Grafici in arrivo]</p>
+            <canvas id="aiUsageChart" width="400" height="200"></canvas>
         </section>
 
         <section id="ai-intelligenti" class="content-section">
-            <h2>AI Intelligenti</h2>
-            <p>[AI personali in arrivo]</p>
+            <h2>AI Intelligenti (Uso Personale)</h2>
+            <ul>
+                <li>🧠 Ricerca e sviluppo nuove app AI</li>
+                <li>🐞 AI per debug codice e automazione fix</li>
+                <li>🧪 AI per test e validazione app</li>
+                <li>🎯 AI per ottimizzazione contenuti, UX, SEO</li>
+                <li>📈 AI per generazione roadmap e analisi mercato</li>
+            </ul>
         </section>
 
         <section id="esporta-dati" class="content-section">
             <h2>Esporta Dati</h2>
-            <p>[Funzionalità di esportazione in arrivo]</p>
+            <button>Esporta utenti (CSV)</button>
+            <button>Esporta utilizzo AI (JSON)</button>
+            <button>Esporta log eventi (TXT)</button>
         </section>
 
         <section id="impostazioni" class="content-section">
             <h2>Impostazioni</h2>
-            <p>[Impostazioni in arrivo]</p>
+            <label><input type="checkbox" id="darkToggle"> Modalità scura</label><br/>
+            <label>Lingua:
+                <select>
+                    <option>Italiano</option>
+                    <option>Inglese</option>
+                    <option>Francese</option>
+                </select>
+            </label>
+            <hr/>
+            <p><strong>Account:</strong></p>
+            <label>Email: <input type="email" value="admin@tuaapp.ai" /></label><br/>
+            <label>Password: <input type="password" value="********" /></label><br/>
+            <button>Aggiorna credenziali</button>
         </section>
     </div>
 
