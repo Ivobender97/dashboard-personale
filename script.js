@@ -4,6 +4,13 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const main = document.getElementById('main');
     sidebar.classList.toggle('collapsed');
+    setTimeout(() => {
+        if (window.Chart) {
+            Object.values(Chart.instances || {}).forEach(instance => {
+                instance.resize();
+            });
+        }
+    }, 310); // tempo per completare l'animazione
     main.classList.toggle('collapsed');
 }
 
