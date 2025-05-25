@@ -120,19 +120,79 @@ function aggiornaGraficoAI() {
 }
 
 
-function navigate(view) {
+function renderUtenti() {
     const content = document.getElementById('content');
+    content.innerHTML = `
+        <h1>Utenti</h1>
+        <p>Gestione utenti e piani attivi.</p>
+        <ul>
+            <li><strong>utente1@email.com</strong> — UniFocus — Piano: Pro</li>
+            <li><strong>utente2@email.com</strong> — EcoWise — Piano: Base</li>
+            <li><strong>utente3@email.com</strong> — FixMe — Piano: Prova gratuita</li>
+        </ul>
+    `;
+}
+
+function renderUtilizzoAI() {
+    const content = document.getElementById('content');
+    content.innerHTML = `
+        <h1>Utilizzo AI</h1>
+        <p>Grafico e statistiche sui messaggi AI.</p>
+        <canvas id="aiChart" width="600" height="300"></canvas>
+        <label for="timeFilter">Filtro tempo:</label>
+        <select id="timeFilter" onchange="updateChart()">
+            <option>Oggi</option>
+            <option>Ultimi 7 giorni</option>
+            <option>Ultimi 30 giorni</option>
+        </select>
+        <h3>Top utenti per uso AI</h3>
+        <table>
+            <thead>
+                <tr><th>Email</th><th>Messaggi AI</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>utente1@email.com</td><td>320</td></tr>
+                <tr><td>utente3@email.com</td><td>210</td></tr>
+                <tr><td>utente2@email.com</td><td>150</td></tr>
+            </tbody>
+        </table>
+        <button onclick="exportCSV()">Esporta CSV</button>
+    `;
+
+    setTimeout(() => {
+        const ctx = document.getElementById('aiChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['UniFocus', 'EcoWise', 'FixMe'],
+                datasets: [{
+                    label: 'Messaggi AI',
+                    data: [320, 150, 210],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+    }, 100); // attende il DOM visibile
+}
+
+function navigate(view) {
     if (view === 'home') {
-        content.innerHTML = '<h1>Dashboard Panoramica</h1><p>Benvenuto nella tua area amministrativa.</p>';
+        document.getElementById('content').innerHTML = '<h1>Dashboard Panoramica</h1><p>Benvenuto nella tua area amministrativa.</p>';
     } else if (view === 'utenti') {
-        content.innerHTML = '<h1>Utenti</h1><p>Gestione utenti e piani attivi.</p>';
+        renderUtenti();
     } else if (view === 'ai') {
         renderUtilizzoAI();
     } else if (view === 'tools') {
-        content.innerHTML = '<h1>AI Intelligenti</h1><p>Strumenti personali per assistenza e automazioni.</p>';
+        document.getElementById('content').innerHTML = '<h1>AI Intelligenti</h1><p>Strumenti personali per assistenza e automazioni.</p>';
     } else if (view === 'export') {
-        content.innerHTML = '<h1>Esporta dati</h1><p>Download dei dati in formato CSV o PDF.</p>';
+        document.getElementById('content').innerHTML = '<h1>Esporta dati</h1><p>Download dei dati in formato CSV o PDF.</p>';
     } else if (view === 'settings') {
-        content.innerHTML = '<h1>Impostazioni</h1><p>Gestione accessi e sicurezza.</p>';
+        document.getElementById('content').innerHTML = '<h1>Impostazioni</h1><p>Gestione accessi e sicurezza.</p>';
     }
 }
