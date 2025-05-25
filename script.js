@@ -251,3 +251,27 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     addNotification("✅ Task 'Test export CSV da grafici' completato", "success");
 });
+
+
+// Salvataggio locale delle notifiche
+function saveNotification(text, type) {
+    const stored = JSON.parse(localStorage.getItem("notifications")) || [];
+    stored.unshift({ text, type });
+    localStorage.setItem("notifications", JSON.stringify(stored));
+}
+
+function addNotification(text, type = "info") {
+    const ul = document.getElementById("notificationList");
+    const li = document.createElement("li");
+    li.textContent = text;
+    if (type === "warning") li.style.color = "darkorange";
+    if (type === "success") li.style.color = "green";
+    if (type === "error") li.style.color = "red";
+    ul.prepend(li);
+    saveNotification(text, type);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const saved = JSON.parse(localStorage.getItem("notifications")) || [];
+    saved.forEach(n => addNotification(n.text, n.type));
+});
