@@ -1,98 +1,29 @@
 
-// Mostra il contenuto della sezione Dashboard
-function renderDashboard() {
-    document.getElementById('content').innerHTML = `
-        <h1>Dashboard Panoramica</h1>
-        <p>Benvenuto nella tua area amministrativa.</p>
-    `;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
+    const toggle = document.getElementById("toggleSidebar");
 
-// Sezione Utenti con colori personalizzati
-function renderUtenti() {
-    document.getElementById('content').innerHTML = `
-        <h1>Utenti</h1>
-        <p>Gestione utenti e piani attivi.</p>
-        <ul>
-            <li><strong style="color:#4e73df;">utente1@email.com</strong> — UniFocus — <span style="color:#1cc88a;">Piano: Pro</span></li>
-            <li><strong style="color:#4e73df;">utente2@email.com</strong> — EcoWise — <span style="color:#f6c23e;">Piano: Base</span></li>
-            <li><strong style="color:#4e73df;">utente3@email.com</strong> — FixMe — <span style="color:#e74a3b;">Piano: Prova gratuita</span></li>
-        </ul>
-    `;
-}
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = this.getAttribute("href").substring(1);
 
-// Sezione Utilizzo AI con filtro e grafico Chart.js
-function renderUtilizzoAI() {
-    document.getElementById('content').innerHTML = `
-        <h1>Utilizzo AI</h1>
-        <p>Grafico e statistiche sui messaggi AI.</p>
-        <label for="timeFilter">Filtro tempo:</label>
-        <select id="timeFilter" onchange="updateChart()">
-            <option>Oggi</option>
-            <option>Ultimi 7 giorni</option>
-            <option>Ultimi 30 giorni</option>
-        </select>
-        <canvas id="aiChart" width="400" height="150"></canvas>
-        <h3>Top utenti per uso AI</h3>
-        <table>
-            <tr><th>Email</th><th>Messaggi AI</th></tr>
-            <tr><td>utente1@email.com</td><td>320</td></tr>
-            <tr><td>utente3@email.com</td><td>210</td></tr>
-            <tr><td>utente2@email.com</td><td>150</td></tr>
-        </table>
-        <button onclick="exportCSV()">Esporta CSV</button>
-    `;
-    renderChart();
-}
+            sections.forEach(section => {
+                section.style.display = section.id === target ? "block" : "none";
+            });
 
-function renderChart() {
-    const ctx = document.getElementById('aiChart').getContext('2d');
-    if (window.aiChart) window.aiChart.destroy();
-    window.aiChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['utente1', 'utente3', 'utente2'],
-            datasets: [{
-                label: 'Messaggi AI',
-                data: [320, 210, 150],
-                backgroundColor: ['#4e73df', '#36b9cc', '#f6c23e']
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true }
-            }
-        }
+            links.forEach(l => l.classList.remove("active"));
+            this.classList.add("active");
+        });
     });
-}
 
-function exportCSV() {
-    const csv = "Email,Messaggi AI\nutente1@email.com,320\nutente3@email.com,210\nutente2@email.com,150";
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "ai_usage.csv";
-    link.click();
-}
+    toggle.addEventListener("click", function () {
+        document.querySelector("nav").classList.toggle("collapsed");
+    });
 
-// Placeholder per sezioni successive
-function renderAIIntelligenti() {
-    document.getElementById('content').innerHTML = `
-        <h1>AI Intelligenti</h1>
-        <p>Strumenti avanzati per il controllo e l’analisi.</p>
-    `;
-}
-
-function renderEsportaDati() {
-    document.getElementById('content').innerHTML = `
-        <h1>Esporta dati</h1>
-        <p>Download CSV utenti, report mensili.</p>
-    `;
-}
-
-function renderImpostazioni() {
-    document.getElementById('content').innerHTML = `
-        <h1>Impostazioni</h1>
-        <p>Accesso, sicurezza, modalità debug.</p>
-    `;
-}
+    // Mostra la prima sezione di default
+    sections.forEach((section, index) => {
+        section.style.display = index === 0 ? "block" : "none";
+    });
+});
