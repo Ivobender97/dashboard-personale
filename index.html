@@ -242,7 +242,19 @@
             <button>Esporta log eventi (TXT)</button>
         </section>
 
-        <section id="impostazioni" class="content-section">
+        
+    <section id="impostazioni" class="content-section">
+        <h2>Impostazioni</h2>
+        <form id="credentialsForm" onsubmit="updateCredentials(event)">
+            <div class="card">
+                <h3>Account</h3>
+                <label>Email di accesso:<br><input type="email" id="userEmail" value="admin@tuodominio.com" required></label><br><br>
+                <label>Nuova password:<br><input type="password" id="newPassword" placeholder="●●●●●●●●"></label><br><br>
+                <button type="submit">Aggiorna credenziali</button>
+                <p id="credsStatus" style="color: green; font-weight: bold; display: none; margin-top: 10px;">Credenziali aggiornate!</p>
+            </div>
+        </form>
+    
             <h2>Impostazioni</h2>
             <label><input type="checkbox" id="darkToggle"> Modalità scura</label><br/>
             <label>Lingua:

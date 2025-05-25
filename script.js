@@ -275,3 +275,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const saved = JSON.parse(localStorage.getItem("notifications")) || [];
     saved.forEach(n => addNotification(n.text, n.type));
 });
+
+
+function updateCredentials(e) {
+    e.preventDefault();
+    const email = document.getElementById("userEmail").value;
+    const pwd = document.getElementById("newPassword").value;
+    localStorage.setItem("loginEmail", email);
+    if (pwd) localStorage.setItem("loginPassword", pwd);
+    document.getElementById("credsStatus").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("loginEmail")) {
+        document.getElementById("userEmail").value = localStorage.getItem("loginEmail");
+    }
+});
