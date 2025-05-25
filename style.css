@@ -80,3 +80,12 @@ th, td {
 .content-section.active {
     display: block;
 }
+
+.card-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card-grid .card {
+    flex: 1 1 250px;
+}
