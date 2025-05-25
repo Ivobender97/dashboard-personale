@@ -2,15 +2,15 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f0f2f5;
+    background-color: #f1f3f5;
 }
 .sidebar {
-    width: 200px;
-    background-color: #2b6cb0;
+    width: 250px;
+    background-color: #2e6bb2;
     color: white;
     height: 100vh;
     position: fixed;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
 }
 .sidebar ul {
     list-style-type: none;
@@ -18,37 +18,41 @@ body {
 }
 .sidebar ul li {
     padding: 15px;
-    cursor: pointer;
 }
-.sidebar ul li:hover {
-    background-color: #2c5282;
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
 }
 .toggle-btn {
-    background: none;
-    border: none;
+    background-color: #2e6bb2;
     color: white;
+    border: none;
     font-size: 20px;
     padding: 10px;
-    width: 100%;
-    text-align: left;
+    cursor: pointer;
 }
-.main-content {
-    margin-left: 200px;
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+.main {
+    margin-left: 250px;
     padding: 20px;
+    transition: margin-left 0.3s ease;
 }
-table {
-    border-collapse: collapse;
-    width: 80%;
-}
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
+.collapsed + .main {
+    margin-left: 0;
 }
 .badge {
     padding: 5px 10px;
-    color: white;
     border-radius: 5px;
+    color: white;
 }
-.badge.pro { background: #2b6cb0; }
-.badge.base { background: #38a169; }
-.badge.free { background: #718096; }
+.badge.pro {
+    background-color: #007bff;
+}
+.badge.base {
+    background-color: #28a745;
+}
+.badge.free {
+    background-color: #6c757d;
+}
