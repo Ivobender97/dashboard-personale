@@ -9,7 +9,7 @@ body {
     color: white;
     padding: 10px;
 }
-.header button {
+#toggle-btn {
     background: none;
     border: none;
     color: white;
@@ -42,29 +42,6 @@ body {
     margin-left: 240px;
     padding: 20px;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-table, th, td {
-    border: 1px solid #ccc;
-}
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-button.action {
-    padding: 5px 10px;
-    background-color: #3182ce;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-button.action:hover {
-    background-color: #2b6cb0;
-}
-
 .plan {
     padding: 4px 8px;
     border-radius: 4px;
@@ -80,4 +57,14 @@ button.action:hover {
 }
 .plan-pro {
     background-color: #2B6CB0;
+}
+button.action {
+    padding: 5px 10px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button.action:hover {
+    background-color: #2b6cb0;
 }
