@@ -1,70 +1,13 @@
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6fa;
-}
-.header {
-    background-color: #2b6cb0;
-    color: white;
-    padding: 10px;
-}
-#toggle-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-.sidebar {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    background-color: #2b6cb0;
-    color: white;
-    width: 220px;
-    height: calc(100% - 50px);
-    padding-top: 20px;
-    display: block;
-}
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-.sidebar ul li {
-    padding: 10px 20px;
-    cursor: pointer;
-}
-.sidebar ul li:hover {
-    background-color: #1e4a70;
-}
-.content {
-    margin-left: 240px;
-    padding: 20px;
-}
-.plan {
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: white;
-    font-weight: bold;
-    display: inline-block;
-}
-.plan-prova-gratuita {
-    background-color: #A0AEC0;
-}
-.plan-base {
-    background-color: #38A169;
-}
-.plan-pro {
-    background-color: #2B6CB0;
-}
-button.action {
-    padding: 5px 10px;
-    background-color: #3182ce;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-button.action:hover {
-    background-color: #2b6cb0;
-}
+body { font-family: Arial, sans-serif; background: #e0e0e0; margin: 0; }
+.sidebar { background: #2968a8; color: white; width: 200px; height: 100vh; position: fixed; }
+.sidebar button { margin: 10px; }
+.sidebar ul { list-style-type: none; padding: 0; }
+.sidebar li { padding: 10px; cursor: pointer; }
+.main { margin-left: 200px; padding: 20px; }
+table { width: 100%; background: white; border-collapse: collapse; }
+th, td { padding: 10px; text-align: left; }
+.badge { padding: 5px 10px; border-radius: 5px; color: white; }
+.pro { background-color: #007bff; }
+.base { background-color: #28a745; }
+.free { background-color: #6c757d; }
