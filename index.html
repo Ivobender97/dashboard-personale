@@ -1,40 +1,27 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>📊 Dashboard Amministratore</title>
+    <title>Dashboard Personale</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>📊 Dashboard Amministratore</h1>
-        <p>Benvenuto nella tua area di controllo</p>
-    </header>
-    <main>
-        <section class="card">
-            <h2>📥 Utenti Attivi</h2>
-            <ul>
-                <li><strong>Email:</strong> utente1@email.com <br><strong>App:</strong> UniFocus <br><strong>Piano:</strong> Pro</li>
-                <li><strong>Email:</strong> utente2@email.com <br><strong>App:</strong> EcoWise <br><strong>Piano:</strong> Base</li>
-                <li><strong>Email:</strong> utente3@email.com <br><strong>App:</strong> FixMe <br><strong>Piano:</strong> Prova gratuita</li>
-            </ul>
-        </section>
-        <section class="card">
-            <h2>🧠 Statistiche AI</h2>
-            <p><strong>Totale messaggi AI:</strong> 128</p>
-            <ul>
-                <li>UniFocus: 80</li>
-                <li>EcoWise: 30</li>
-                <li>FixMe: 18</li>
-            </ul>
-        </section>
-        <section class="card actions">
-            <h2>⚙️ Azioni rapide</h2>
-            <button onclick="resetContatori()">🔄 Reset contatori</button>
-            <button onclick="upgradeUtente()">🚀 Upgrade utente</button>
-        </section>
-    </main>
+    <div class="sidebar" id="sidebar">
+        <button onclick="toggleSidebar()">☰</button>
+        <ul>
+            <li onclick="navigate('home')">Dashboard</li>
+            <li onclick="navigate('utenti')">Utenti</li>
+            <li onclick="navigate('ai')">Utilizzo AI</li>
+            <li onclick="navigate('tools')">AI Intelligenti</li>
+            <li onclick="navigate('export')">Esporta dati</li>
+            <li onclick="navigate('settings')">Impostazioni</li>
+        </ul>
+    </div>
+    <div class="content" id="content">
+        <h1>Benvenuto nella tua Dashboard</h1>
+        <p>Seleziona una sezione dal menu per iniziare.</p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
