@@ -13,6 +13,7 @@
     <div class="sidebar" id="sidebar">
         <ul>
             <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('crea-app')">Crea nuova app AI</a></li>
             <li><a href="#" onclick="showSection('utenti')">Utenti</a></li>
             <li><a href="#" onclick="showSection('utilizzo-ai')">Utilizzo AI</a></li>
             <li><a href="#" onclick="showSection('ai-intelligenti')">AI Intelligenti</a></li>
@@ -48,9 +49,26 @@
                 <li>🎯 AI per ottimizzazione contenuti, UX, SEO</li>
                 <li>📈 AI per generazione roadmap e analisi mercato</li>
             </ul>
+        
+    </section>
+
+        <section id="crea-app" class="content-section">
+            <h2>Crea una nuova app AI</h2>
+            <form id="newAppForm">
+                <label>Nome app: <input type="text" id="appName" required></label><br><br>
+                <label>Problema che risolve:<br>
+                <textarea id="problem" rows="3" required></textarea></label><br><br>
+                <label>Target utenti:<br>
+                <input type="text" id="target" required></label><br><br>
+                <label>Tipo AI (chat, image, analisi, ecc.):<br>
+                <input type="text" id="aiType" required></label><br><br>
+                <button type="submit">Genera scheda app</button>
+            </form>
+            <div id="generatedApp" style="margin-top:20px;"></div>
         </section>
 
-        <section id="esporta-dati" class="content-section">
+        <section id="esporta-dati"
+ class="content-section">
             <h2>Esporta Dati</h2>
             <button>Esporta utenti (CSV)</button>
             <button>Esporta utilizzo AI (JSON)</button>

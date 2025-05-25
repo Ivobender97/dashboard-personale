@@ -72,3 +72,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// Gestione generazione app AI
+document.getElementById('newAppForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('appName').value.trim();
+    const problem = document.getElementById('problem').value.trim();
+    const target = document.getElementById('target').value.trim();
+    const aiType = document.getElementById('aiType').value.trim();
+
+    const output = `
+        <div class="card">
+            <h3>${name}</h3>
+            <p><strong>Problema che risolve:</strong> ${problem}</p>
+            <p><strong>Target utenti:</strong> ${target}</p>
+            <p><strong>Tipo di AI:</strong> ${aiType}</p>
+            <p><em>Strategia suggerita: inizia con un MVP basato su ${aiType}, testalo con un piccolo gruppo di ${target} e raccogli feedback entro 2 settimane.</em></p>
+        </div>
+    `;
+    document.getElementById('generatedApp').innerHTML = output;
+});
