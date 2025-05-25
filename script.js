@@ -1,4 +1,5 @@
 
+// === TOGGLE SIDEBAR ===
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const main = document.getElementById('main');
@@ -6,44 +7,50 @@ function toggleSidebar() {
     main.classList.toggle('collapsed');
 }
 
+// === SHOW SECTIONS ===
 function showSection(id) {
     const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
-    document.getElementById(id).classList.add('active');
+    sections.forEach(section => section.classList.remove('active'));
+    const selected = document.getElementById(id);
+    if (selected) selected.classList.add('active');
 }
 
-// Dark mode
+// === DARK MODE TOGGLE ===
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('darkToggle').addEventListener('change', function() {
-        document.body.classList.toggle('dark-mode', this.checked);
-    });
+    const darkToggle = document.getElementById('darkToggle');
+    if (darkToggle) {
+        darkToggle.addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode', this.checked);
+        });
+    }
 
-    // Sezione utenti
+    // === TABELLA UTENTI ===
     const userData = [
         { email: "utente1@email.com", app: "UniFocus", piano: "Pro" },
         { email: "utente2@email.com", app: "EcoWise", piano: "Base" },
-        { email: "utente3@email.com", app: "FixMe", piano: "Prova gratuita" },
+        { email: "utente3@email.com", app: "FixMe", piano: "Prova gratuita" }
     ];
     const badgeClass = { "Pro": "pro", "Base": "base", "Prova gratuita": "free" };
-    let tableHTML = `<table>
-        <thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead><tbody>`;
-    userData.forEach(user => {
-        tableHTML += `<tr>
-            <td>${user.email}</td>
-            <td>${user.app}</td>
-            <td><span class="badge ${badgeClass[user.piano]}">${user.piano}</span></td>
-            <td>
-                <button onclick="alert('Upgrade ${user.email}')">Upgrade</button>
-                <button onclick="alert('Reset AI ${user.email}')">Reset AI</button>
-                <button onclick="alert('Sospendi ${user.email}')">Sospendi</button>
-            </td></tr>`;
-    });
-    tableHTML += "</tbody></table>";
-    document.getElementById("userTableContainer").innerHTML = tableHTML;
+    const userContainer = document.getElementById("userTableContainer");
+    if (userContainer) {
+        let tableHTML = "<table><thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead><tbody>";
+        userData.forEach(user => {
+            tableHTML += `<tr>
+                <td>${user.email}</td>
+                <td>${user.app}</td>
+                <td><span class="badge ${badgeClass[user.piano]}">${user.piano}</span></td>
+                <td>
+                    <button onclick="alert('Upgrade ${user.email}')">Upgrade</button>
+                    <button onclick="alert('Reset AI ${user.email}')">Reset AI</button>
+                    <button onclick="alert('Sospendi ${user.email}')">Sospendi</button>
+                </td>
+            </tr>`;
+        });
+        tableHTML += "</tbody></table>";
+        userContainer.innerHTML = tableHTML;
+    }
 
-    // Grafico AI
+    // === GRAFICO UTILIZZO AI ===
     const ctx = document.getElementById('aiUsageChart');
     if (ctx) {
         new Chart(ctx, {
@@ -59,53 +66,36 @@ document.addEventListener("DOMContentLoaded", () => {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: {
-                        display: true
-                    }
+                    legend: { display: true }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+                scales: { y: { beginAtZero: true } }
             }
+        });
+    }
+
+    // === CREA APP AI (manuale) ===
+    const newAppForm = document.getElementById("newAppForm");
+    if (newAppForm) {
+        newAppForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('appName').value.trim();
+            const problem = document.getElementById('problem').value.trim();
+            const target = document.getElementById('target').value.trim();
+            const aiType = document.getElementById('aiType').value.trim();
+            const output = `
+                <div class="card">
+                    <h3>${name}</h3>
+                    <p><strong>Problema che risolve:</strong> ${problem}</p>
+                    <p><strong>Target utenti:</strong> ${target}</p>
+                    <p><strong>Tipo di AI:</strong> ${aiType}</p>
+                    <p><em>Strategia suggerita: inizia con un MVP basato su ${aiType}, testalo con un piccolo gruppo di ${target} e raccogli feedback entro 2 settimane.</em></p>
+                </div>`;
+            document.getElementById('generatedApp').innerHTML = output;
         });
     }
 });
 
-
-// Gestione generazione app AI
-document.getElementById('newAppForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('appName').value.trim();
-    const problem = document.getElementById('problem').value.trim();
-    const target = document.getElementById('target').value.trim();
-    const aiType = document.getElementById('aiType').value.trim();
-
-    const output = `
-        <div class="card">
-            <h3>${name}</h3>
-            <p><strong>Problema che risolve:</strong> ${problem}</p>
-            <p><strong>Target utenti:</strong> ${target}</p>
-            <p><strong>Tipo di AI:</strong> ${aiType}</p>
-            <p><em>Strategia suggerita: inizia con un MVP basato su ${aiType}, testalo con un piccolo gruppo di ${target} e raccogli feedback entro 2 settimane.</em></p>
-        </div>
-    `;
-    document.getElementById('generatedApp').innerHTML = output;
-});
-() {
-    const sidebar = document.getElementById('sidebar');
-    const main = document.getElementById('main');
-    sidebar.classList.toggle('collapsed');
-    main.classList.toggle('collapsed');
-}
-
-function showSection(id) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => section.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
+// === RICERCA AI LUNGA ===
 function startAISearch() {
     const progress = document.getElementById('progressBar');
     const container = document.getElementById('progressContainer');
@@ -114,7 +104,6 @@ function startAISearch() {
     container.style.display = 'block';
     results.innerHTML = '';
     let percent = 0;
-
     const messages = [
         "Analisi trend globali in corso...",
         "Esame dei modelli AI attuali...",
@@ -123,25 +112,21 @@ function startAISearch() {
         "Valutazione potenziale di mercato...",
         "Finalizzazione proposta app AI..."
     ];
-
     let msgIndex = 0;
-
     const interval = setInterval(() => {
         percent += Math.floor(Math.random() * 3) + 1;
         if (percent > 100) percent = 100;
         progress.value = percent;
-
         if (percent >= (msgIndex + 1) * 15 && msgIndex < messages.length) {
             status.textContent = messages[msgIndex];
             msgIndex++;
         }
-
         if (percent >= 100) {
             clearInterval(interval);
             status.textContent = "Ricerca completata!";
             showAIResults();
         }
-    }, 500); // circa 50 step → 25 sec tempo medio simulato
+    }, 500);
 }
 
 function showAIResults() {
