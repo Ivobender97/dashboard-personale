@@ -4,7 +4,7 @@ function navigate(section) {
     if (section === 'home') {
         content.innerHTML = '<h1>Dashboard Panoramica</h1><p>Benvenuto nella tua area amministrativa.</p>';
     } else if (section === 'utenti') {
-        content.innerHTML = '<h1>Gestione Utenti</h1><p>Visualizza e gestisci gli utenti registrati.</p>';
+        renderUtenti();
     } else if (section === 'ai') {
         content.innerHTML = '<h1>Utilizzo AI</h1><p>Grafico e statistiche sui messaggi AI.</p>';
     } else if (section === 'tools') {
@@ -19,4 +19,31 @@ function navigate(section) {
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+}
+
+function renderUtenti() {
+    const content = document.getElementById('content');
+    const utenti = [
+        { email: "utente1@email.com", app: "UniFocus", piano: "Pro" },
+        { email: "utente2@email.com", app: "EcoWise", piano: "Base" },
+        { email: "utente3@email.com", app: "FixMe", piano: "Prova gratuita" }
+    ];
+
+    let html = '<h1>Gestione Utenti</h1>';
+    html += '<table><thead><tr><th>Email</th><th>App</th><th>Piano</th><th>Azioni</th></tr></thead><tbody>';
+
+    utenti.forEach(utente => {
+        html += `<tr>
+            <td>${utente.email}</td>
+            <td>${utente.app}</td>
+            <td>${utente.piano}</td>
+            <td>
+                <button class="action" onclick="alert('Upgrade per ${utente.email}')">Upgrade</button>
+                <button class="action" onclick="alert('Reset AI per ${utente.email}')">Reset AI</button>
+            </td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    content.innerHTML = html;
 }
